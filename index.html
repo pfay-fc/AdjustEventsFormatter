@@ -1,0 +1,25 @@
+<html>
+  <p>Copy paste events from adjust and click off:</p>
+  <textarea name="unformattedEvents" onChange="onEventsEntered(this.value);" type="text"></textarea>
+  <p>Formatted Events:</p>
+  <pre id="formattedEvents"></pre>
+
+  <script>
+    function onEventsEntered(unformattedEvents) {
+      // console.log(unformattedEvents);
+      formattedEventsText = "";
+
+      var splitLines= unformattedEvents.split('\n');
+      for (var i = 0; i < splitLines.length; i+=2) {
+        if (splitLines[i] == "" || splitLines[i+1] =="") {
+          continue;
+        }
+        var thisLine = "public const string " + splitLines[i] + " = \"" + splitLines[i+1] + "\";\n";
+        // console.log(thisLine);
+        formattedEventsText += thisLine;
+      }
+
+      document.getElementById("formattedEvents").innerHTML = formattedEventsText;
+    }
+  </script>
+</html>
