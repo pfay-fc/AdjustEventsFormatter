@@ -9,7 +9,7 @@
       // console.log(unformattedEvents);
       formattedEventsText = "";
 
-      var splitLines= unformattedEvents.split('\n');
+      var splitLines= unformattedEvents.trim().split('\n');
       for (var i = 0; i < splitLines.length; i+=2) {
         if (splitLines[i] == "" || splitLines[i+1] =="") {
           continue;
