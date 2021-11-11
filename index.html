@@ -10,6 +10,7 @@
       formattedEventsText = "";
 
       var splitLines= unformattedEvents.trim().split('\n');
+      splitLines = splitLines.map(function(str){return str.trim();})
       for (var i = 0; i < splitLines.length; i+=2) {
         if (splitLines[i] == "" || splitLines[i+1] =="") {
           continue;
